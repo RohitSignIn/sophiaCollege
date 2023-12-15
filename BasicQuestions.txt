@@ -1,0 +1,22 @@
+1. SUM of all Entered Numbers
+2. Count of Even No & Count of Odd Numbers
+3. First Even No || First Odd No
+4. Maximum Number
+5. Maximum Second Number
+6. Count +ve, -ve and zeros
+7. Display sum of all two digits and three digits Number
+8. Display First Even without skipping the rest
+9. Display second Even without skipping the rest
+10. Display Table of number
+----------------------------------------------------------
+11. Display Power (Exponent)
+12. Factorial (Using loop and recurssion)
+13. Prime Number
+14. Perfect Number (A number that is equal to sum of its positive divisor)
+15. Reverse of n digit no.
+16. Palindrome 
+17. Armstrong Number
+----------------------------------------------------------
+18. LCM
+19. HCF
+20. Fibonacci series
