@@ -20,3 +20,6 @@
 18. LCM
 19. HCF
 20. Fibonacci series
+
+
+21. Second Commit
