@@ -10,12 +10,29 @@ app.grid_columnconfigure(0, weight=1)
 MainFrame = Frame(app, bg="#2d2d2d")
 MainFrame.grid(row=0, column=0, sticky="ewns")
 
-
 MainFrame.grid_columnconfigure(0, weight=1)
 MainFrame.grid_rowconfigure(0, weight=1)
 
+playerTurn = "x"
+
 def handleBtnClick(btnNum):
-    print(btnNum)
+    global playerTurn
+
+    btn = Button(tictactoeFrame, width=8, height=4, text=playerTurn, fg="#2d2d2d", bg="#fff")
+
+    if(btnNum >= 0 and btnNum < 3):
+        btn.grid(row=0, column=btnNum)
+    elif(btnNum >= 3 and btnNum < 6):
+        btn.grid(row=1, column=btnNum-3)
+    elif(btnNum >= 6 and btnNum < 9):
+        btn.grid(row=2, column=btnNum-6)
+
+
+    if(playerTurn == "x"):
+        playerTurn = "o"
+    else:
+        playerTurn = "x"
+
 
 def initialStruc():
     btn0 = Button(tictactoeFrame, width=8, height=4, bg="#fff", command=lambda: handleBtnClick(0))
