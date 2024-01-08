@@ -1,6 +1,4 @@
 # 2. Valid Parenthesis: https://leetcode.com/problems/valid-parentheses/description/
-
-
 def validParentheses(s):
     st = []
     allParentheses = {
