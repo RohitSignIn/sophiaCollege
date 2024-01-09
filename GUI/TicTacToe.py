@@ -38,6 +38,7 @@ def handleBtnClick(btnNum):
 def isWinner(turn):
     global winner
     global playerTurn
+    global movesDone
 
     winnerList = [
         [0,1,2],
@@ -53,10 +54,11 @@ def isWinner(turn):
     for i in winnerList:
         winner = True
         for j in i:
-            if(i in movesDone[j]):
+            if(j in movesDone):
                 if(movesDone[j] != turn):
                     winner = False
                     break
+            else:
                 winner = False
                 break
         if(winner):
