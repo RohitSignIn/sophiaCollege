@@ -19,6 +19,16 @@ def printList(head):
         temp = temp["next"]
     print("end")
 
+def addAtTail(head, data):
+    temp = head
+    while(temp["next"] != None):
+        temp = temp["next"]
+
+    newNode = createNode(data)
+    temp["next"] = newNode
+
+    return head
+
 head = {
     "data": 1,
     "next": {
@@ -30,6 +40,14 @@ head = {
     }
 }
 
+def removeAtHead():
+    return
+
+def removeAtTail():
+    return
+
+
 head = addAtHead(head, 5)
+head = addAtTail(head, 4)
 
 printList(head)
