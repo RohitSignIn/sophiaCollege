@@ -1,4 +1,6 @@
 from tkinter import *
+from tkinter import messagebox
+
 
 app = Tk()
 app.geometry("800x600")
@@ -65,7 +67,15 @@ def isWinner(turn):
             break
 
     if(winner):
-        print("Got Winner", turn)
+        messagePrompt = "{} is Winner. Start New Game ?"
+        messagePrompt = messagePrompt.format(playerTurn)
+        userRes = messagebox.askquestion("Got Winner", messagePrompt)
+
+        if(userRes == "yes"):
+            initialStruc()
+            movesDone = {}
+            winner = False
+
     else:
         if(playerTurn == "x"):
             playerTurn = "o"
