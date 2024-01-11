@@ -40,14 +40,36 @@ head = {
     }
 }
 
-def removeAtHead():
-    return
+def removeAtHead(head):
+    if(head == None):
+        print("Head is None")
+        return
+    
+    temp = head["next"]
+    head["next"] = None
 
-def removeAtTail():
-    return
+    return temp
 
+def removeAtTail(head):
+    if(head == None):
+        print("Head is None")
+        return
+    
+    temp = head
+
+    while(temp["next"]["next"] != None):
+        temp = temp["next"]
+
+    temp["next"] = None
+    return head
 
 head = addAtHead(head, 5)
 head = addAtTail(head, 4)
+
+printList(head)
+
+head = removeAtHead(head)
+head = removeAtHead(head)
+head = removeAtTail(head)
 
 printList(head)
