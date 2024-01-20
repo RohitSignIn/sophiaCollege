@@ -67,7 +67,21 @@ def removeAtTail(head):
     return head
 
 
+def addNodeatTail(head, node):
+    if(head == None):
+        return node
+    
+    node["next"] = None
+
+    temp = head 
+    while(temp["next"] != None):
+        temp = temp["next"]
+
+    temp["next"] = node
+    return head
+
 def reorderLinkedList(list1):
+    # Step 1 Splitting in two Linked List
     p1 = list1
     p2 = list1
     while(p2["next"] != None and p2["next"]["next"] != None):
@@ -77,20 +91,44 @@ def reorderLinkedList(list1):
     list2 = p1["next"]
     p1["next"] = None
 
-    printList(list1)
-    printList(list2)
+    # Step 2 Reverse second List 
+    st = []
+    while(list2 != None):
+        st.append(list2)
+        list2 = list2["next"]
 
-    return
+    list2 = None
+    while(len(st)):
+        node = st.pop()
+        list2 = addNodeatTail(list2, node)
 
+    # step 3
+    p1 = list1 
+    p2 = list2 
 
+    turn = True
+    while(p2 != None):
+        if(turn):
+            ref = p1["next"]
+            p1["next"] = p2
+            p1 = ref
+            turn = False 
+        else:
+            ref = p2["next"]
+            p2["next"] = p1
+            p2 = ref
+            turn = True 
+
+    return list1
+                
 
 list1 = None
 
-list1 = addAtHead(list1, 6)
+# list1 = addAtHead(list1, 6)
 list1 = addAtHead(list1, 5)
 list1 = addAtHead(list1, 4)
 list1 = addAtHead(list1, 3)
 list1 = addAtHead(list1, 2)
 list1 = addAtHead(list1, 1)
 
-reorderLinkedList(list1)
+printList(reorderLinkedList(list1))
