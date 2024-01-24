@@ -1,0 +1,13 @@
+Todos:
+Add Todo
+Fetch All Todo
+Fetch Todo by userId
+Update Todo by todoId
+Delete Todo by todoId
+
+Users:
+Add User
+Fetch All Users
+Fetch User by userId
+Update User by userId
+Delete User by UserId
