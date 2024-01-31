@@ -1,0 +1,38 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh;
+}
+
+#todoInput {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+#todoInput > div input {
+  font-weight: 200;
+  font-family: sans-serif;
+  padding: 0.2rem 0.4rem;
+  border: none;
+  background: #bebebe;
+  outline: none;
+  border-radius: 0.2rem;
+}
+
+#todoInput > div button {
+  font-weight: 600;
+  font-family: sans-serif;
+  padding: 0.2rem 0.4rem;
+  border: none;
+  background: tomato;
+  color: #fff;
+  border-radius: 0.2rem;
+}

@@ -1,91 +1,77 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
 </head>
 
 <body>
-    <!-- Header Start -->
-    <header>
-        <h1><u>Resume</u></h1>
-        <h2>Rohit Singh</h2>
-        <img width="350" height="250"
-            src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Person">
-    </header>
 
-    <h3><u>Objective:</u></h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem non, tenetur laboriosam ducimus eum culpa saepe
-        dicta molestiae. Exercitationem unde expedita vero reiciendis porro repudiandae modi suscipit consequatur ea
-        mollitia.
-        Similique incidunt ducimus quos hic, exercitationem, vel quaerat, sit repellendus quas assumenda facilis
-        excepturi atque ex repellat provident est! Atque totam officiis, consequuntur quia adipisci aperiam voluptatem
-        dolore accusamus eaque!</p>
+    <div class="container">
+        <div class="mb-3">
 
-    <h3><u>Education:</u></h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Sr.No.</th>
-                <th>Degree | Course</th>
-                <th>CGPA</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th>1</th>
-                <td>B.tech</td>
-                <td>8</td>
-            </tr>
-            <tr>
-                <th>2</th>
-                <td>ADHN</td>
-                <td>9</td>
-            </tr>
-            <tr>
-                <th>3</th>
-                <td>Digital Marketing</td>
-                <td>9</td>
-            </tr>
-        </tbody>
-    </table>
+            <label for="exampleInputEmail1" class="form-label">Todo</label>
+            <input type="text" class="form-control" id="todoInput">
+        </div>
+        <button id="todoSubmit" class="btn btn-primary">Add Todo</button>
+
+        <hr>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Task</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody id="rowCont">
+            </tbody>
+        </table>
+    </div>
 
 
-    <h3><u>Hobbies:</u></h3>
-    <ol>
-        <li>hello</li>
-        <li>hello</li>
-        <li>hello</li>
-        <li>hello</li>
-    </ol>
 
-    <ul>
-        <li>hello</li>
-        <li>hello</li>
-        <li>hello</li>
-        <li>hello</li>
-    </ul>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <script>
+        let count = 0;
+        let todos = [];
+
+        $("#todoSubmit").on("click", () => {
+            const task = $("#todoInput").val()
+            const tableRow = $("<tr></tr>")
+            const tableHead = $(`<th scope="row">${++count}</th>`)
+            const tableData = $(`<td>${task}</td>`)
+            const editBtn = $('<td><button class="btn btn-warning">Edit</button></td>')
+            const deleteBtn = $('<td><button class="btn btn-danger">Delete</button></td>')
+
+            tableRow.append(tableHead)
+            tableRow.append(tableData)
+            tableRow.append(editBtn)
+            tableRow.append(deleteBtn)
+
+            $("#rowCont").append(tableRow)
+            todos.push(task);
+            console.log(todos)
+        })
 
 
-    <h3><u>Contact:</u></h3>
-    <form action="/main.html" , method="get">
+    </script>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-
-        <br>
-
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required>
-
-
-        <input type="submit">
-
-
-    </form>
 </body>
 
 </html>
