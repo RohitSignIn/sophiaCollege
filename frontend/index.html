@@ -48,27 +48,66 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
     <script>
+
         let count = 0;
         let todos = [];
 
-        $("#todoSubmit").on("click", () => {
-            const task = $("#todoInput").val()
-            const tableRow = $("<tr></tr>")
-            const tableHead = $(`<th scope="row">${++count}</th>`)
-            const tableData = $(`<td>${task}</td>`)
-            const editBtn = $('<td><button class="btn btn-warning">Edit</button></td>')
-            const deleteBtn = $('<td><button class="btn btn-danger">Delete</button></td>')
-
-            tableRow.append(tableHead)
-            tableRow.append(tableData)
-            tableRow.append(editBtn)
-            tableRow.append(deleteBtn)
-
-            $("#rowCont").append(tableRow)
-            todos.push(task);
+        function handleDelete(btn) {
+            todos[btn.attr("value")] = null;
             console.log(todos)
-        })
+        }
 
+        $(document).ready(function () {
+            $("#rowCount").on("click",)
+
+
+            $("#todoSubmit").on("click", () => {
+                const task = $("#todoInput").val()
+                const tableRow = $("<tr></tr>")
+                const tableHead = $(`<th scope="row">${++count}</th>`)
+                const tableData = $(`<td>${task}</td>`)
+                const editBtn = $('<td><button class="btn btn-warning">Edit</button></td>')
+                const deleteBtn = $(`<td value=${count - 1}><button btnVal=${count - 1} class="btn btn-danger todoDelete">Delete</button></td>`)
+
+                deleteBtn.on("click", () => {
+                    handleDelete(deleteBtn)
+                })
+
+                tableRow.append(tableHead)
+                tableRow.append(tableData)
+                tableRow.append(editBtn)
+                tableRow.append(deleteBtn)
+
+                $("#rowCont").append(tableRow)
+                todos.push(task);
+            })
+
+            function handleRepaint() {
+
+                $("#rowCont").html("")
+                for (let indx = 0; indx < todos.length; indx++) {
+                    const val = todos[indx];
+                    if (val == null) continue;
+
+                    const task = $("#todoInput").val()
+                    const tableRow = $("<tr></tr>")
+                    const tableHead = $(`<th scope="row">${indx}</th>`)
+                    const tableData = $(`<td>${val}</td>`)
+                    const editBtn = $('<td><button class="btn btn-warning">Edit</button></td>')
+                    const deleteBtn = $(`<td><button btnVal=${indx} class="btn btn-danger todoDelete">Delete</button></td>`)
+
+                    tableRow.append(tableHead)
+                    tableRow.append(tableData)
+                    tableRow.append(editBtn)
+                    tableRow.append(deleteBtn)
+
+                    $("#rowCont").append(tableRow)
+                }
+            }
+
+            // handle delete 
+            $(".todoDelete").on("click", handleRepaint());
+        });
 
     </script>
 
