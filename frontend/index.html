@@ -58,6 +58,16 @@
                 handleRepaint(todos)
             }
 
+            function handleEdit(btn) {
+                btnType = $(btn).text()
+
+                if (btnType == "Edit") {
+                    $(btn).text("Save")
+                } else {
+                    $(btn).text("Edit")
+                }
+            }
+
             $("#rowCount").on("click",)
 
 
@@ -78,16 +88,23 @@
                     const tableRow = $("<tr></tr>")
                     const tableHead = $(`<th scope="row">${++count}</th>`)
                     const tableData = $(`<td>${val}</td>`)
-                    const editBtn = $('<td><button class="btn btn-warning">Edit</button></td>')
+                    const editTd = $('<td></td>')
+                    const editBtn = $('<button class="btn btn-warning">Edit</button>');
                     const deleteBtn = $(`<td value=${indx}><button btnVal=${indx} class="btn btn-danger todoDelete">Delete</button></td>`)
 
                     deleteBtn.on("click", () => {
                         handleDelete(deleteBtn)
                     })
 
+                    editBtn.on("click", () => {
+                        handleEdit(editBtn)
+                    })
+
+                    editTd.append(editBtn)
+
                     tableRow.append(tableHead)
                     tableRow.append(tableData)
-                    tableRow.append(editBtn)
+                    tableRow.append(editTd)
                     tableRow.append(deleteBtn)
 
                     $("#rowCont").append(tableRow)
