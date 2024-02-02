@@ -84,13 +84,14 @@
 
             function handleRepaint(todos) {
                 $("#rowCont").html("")
+                let count = 0
                 for (let indx = 0; indx < todos.length; indx++) {
                     const val = todos[indx];
                     if (val == null) continue;
 
                     const task = $("#todoInput").val()
                     const tableRow = $("<tr></tr>")
-                    const tableHead = $(`<th scope="row">${indx + 1}</th>`)
+                    const tableHead = $(`<th scope="row">${++count}</th>`)
                     const tableData = $(`<td>${val}</td>`)
                     const editBtn = $('<td><button class="btn btn-warning">Edit</button></td>')
                     const deleteBtn = $(`<td value=${indx}><button btnVal=${indx} class="btn btn-danger todoDelete">Delete</button></td>`)
