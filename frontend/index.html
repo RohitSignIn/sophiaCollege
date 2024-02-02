@@ -63,9 +63,18 @@
 
                 if (btnType == "Edit") {
                     $(btn).text("Save")
+
+                    const inputNode = $(`<input type="text" value="${$(btn).parent().prev().text()}"  />`)
+                    $(btn).parent().prev().html(inputNode)
                 } else {
                     $(btn).text("Edit")
+
+                    const text = $(btn).parent().prev().children().val()
+                    $(btn).parent().prev().html(text)
                 }
+
+
+                $(btn).parent().prev().text()
             }
 
             $("#rowCount").on("click",)
