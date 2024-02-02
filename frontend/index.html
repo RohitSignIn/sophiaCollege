@@ -63,23 +63,8 @@
 
             $("#todoSubmit").on("click", () => {
                 const task = $("#todoInput").val()
-                const tableRow = $("<tr></tr>")
-                const tableHead = $(`<th scope="row">${++count}</th>`)
-                const tableData = $(`<td>${task}</td>`)
-                const editBtn = $('<td><button class="btn btn-warning">Edit</button></td>')
-                const deleteBtn = $(`<td value=${count - 1}><button btnVal=${count - 1} class="btn btn-danger todoDelete">Delete</button></td>`)
-
-                deleteBtn.on("click", () => {
-                    handleDelete(deleteBtn)
-                })
-
-                tableRow.append(tableHead)
-                tableRow.append(tableData)
-                tableRow.append(editBtn)
-                tableRow.append(deleteBtn)
-
-                $("#rowCont").append(tableRow)
                 todos.push(task);
+                handleRepaint(todos);
             })
 
             function handleRepaint(todos) {
