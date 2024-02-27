@@ -6,12 +6,12 @@ def lengthOfLastWord(self, s: str) -> int:
     flag = True
     for i in s:
         if(i == " "):
-            flag= True
+            flag=True
             continue
         else:
             if(flag):
                 lastWordCount = 1
-                flag= False
+                flag=False
             else:
                 lastWordCount += 1
         
