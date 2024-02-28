@@ -14,6 +14,7 @@ def singleNonDuplicate(nums):
         if(mid != 0 and mid != n-1 and nums[mid] != nums[mid-1] and nums[mid] != nums[mid+1]):
             return mid
         
+        # Assignment handle corner cases
         # if(mid == 0):
 
         # if(mid == n-1):
