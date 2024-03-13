@@ -1,8 +1,12 @@
+sum = 0
+
+
 def preOrderTraversal(root):
+    global sum
     if(root == None):
         return
     
-    print(root["data"])
+    sum += root["data"]
     preOrderTraversal(root["left"])
     preOrderTraversal(root["right"])
 
@@ -33,3 +37,4 @@ root = {
 }
 
 preOrderTraversal(root)
+print(sum)
